@@ -1478,6 +1478,9 @@ With ARG, do it that many times."
                   (msg (match-string 2 response))
                   (face (if (string= "warning" (match-string 3 response)) 'erm-syn-warnline 'erm-syn-errline)))
           (setq response (substring response (match-end 0)))
+
+          (message (substring response (match-end 0)))
+
           (forward-line (- line-no last-line))
 
           (when (or (eq face 'erm-syn-errline) (eq enh-ruby-check-syntax 'errors-and-warnings))
